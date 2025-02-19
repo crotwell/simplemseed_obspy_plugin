@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "simplemseed-obspy-plugin"
+dynamic = ["version"]
+authors = [
+  {name="Philip Crotwell", email = "crotwell@seis.sc.edu"}
+]
+description = "obspy plugin for miniseed3 in pure python"
+readme = "README.md"
+long_description_content_type = "text/markdown"
+keywords = ["obspy", "miniseed3", "seed", "steim1", "steim2", "fdsn", "sourceid"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.9"
+dependencies = [
+    "simplemseed>=0.4.1",
+    "obspy",
+    "crc32c",
+    "numpy",
+    "jsonpointer",
+    'importlib-metadata; python_version<"3.10"'
+]
+
+[project.urls]
+Homepage = "https://github.com/crotwell/simplemseed_obspy_plugin"
+Documentation = "https://github.com/crotwell/simplemseed_obspy_plugin"
+Repository = "https://github.com/crotwell/simplemseed_obspy_plugin"
+Issues = "https://github.com/crotwell/simplemseed_obspy_plugin/issues"
+
+
+[project.entry-points."obspy.plugin.waveform"]
+MSEED3 = "simplemseed_obspy_plugin.core"
+
+[project.entry-points."obspy.plugin.waveform.MSEED3"]
+isFormat = "simplemseed_obspy_plugin.core:_is_mseed3"
+readFormat = "simplemseed_obspy_plugin.core:_read_mseed3"
+writeFormat = "simplemseed_obspy_plugin.core:_write_mseed3"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+[tool.hatch.version]
+path = "src/simplemseed_obspy_plugin/__init__.py"
