@@ -1,5 +1,7 @@
 # simplemseed_obspy_plugin
-Obspy plugin for reading miniseed3 files
+Obspy plugin for reading miniseed3 files.
+
+See https://pypi.org/project/simplemseed/ for details.
 
 
 ## Installation
