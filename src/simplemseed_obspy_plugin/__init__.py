@@ -59,7 +59,7 @@ stats and stats['eh'] are written with the following command to a file:
 
 """
 
-__version__ = "0.4.3"
+__version__ = "0.4.4"
 
 
 if __name__ == "__main__":

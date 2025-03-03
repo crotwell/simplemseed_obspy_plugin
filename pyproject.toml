@@ -20,7 +20,7 @@ classifiers = [
 ]
 requires-python = ">=3.9"
 dependencies = [
-    "simplemseed>=0.4.3",
+    "simplemseed>=0.4.4",
     "obspy",
     "crc32c",
     "numpy",
